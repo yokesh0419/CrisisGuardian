@@ -10,17 +10,13 @@ const alerts = [];
 app.post("/api/sos", (req, res) => {
   const { fromVoice, location } = req.body;
 
-  const alert = {
+  console.log("🔥 SOS stored:", {
     time: new Date().toISOString(),
     fromVoice,
-    location,
-  };
+    location
+  });
 
-  alerts.push(alert);
-
-  console.log("🔥 SOS stored:", alert);
-
-  res.json({ success: true, message: "Alert saved" });
+  res.json({ success: true });
 });
 
 app.get("/api/alerts",(req,res)=>{
